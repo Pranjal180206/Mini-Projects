@@ -5,3 +5,4 @@ A growing collection of mini projects created to explore and strengthen core pro
 # Sample Projects:
 
     🎮 2D games with Pygame (e.g., Space Invaders)
+    🤖 Iris Dataset Classification – A machine learning classification pipeline using the classic Iris dataset. Includes data loading, visualization, multiple ML models and evaluation metrics.
