@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+
+# Data
+dataset/
+uploads/
+classification_records.db
+
+# Training outputs
+runs/
+
+# Models (optional)
+*.pt
+
+# OS
+.DS_Store
+Thumbs.db
