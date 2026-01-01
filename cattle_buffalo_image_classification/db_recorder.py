@@ -44,7 +44,12 @@ def fetch_all():
     conn = get_db_conn()
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM classification_records")
+    cursor.execute("""
+                SELECT timestamp, img_name, pred_class, confidence
+                    FROM classification_records
+                    ORDER BY timestamp DESC
+    """)
+
     rows = cursor.fetchall()
 
     conn.close()
