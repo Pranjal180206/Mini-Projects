@@ -2,9 +2,9 @@ from flask import Flask, render_template, request, send_from_directory, url_for
 from werkzeug.utils import secure_filename
 from pathlib import Path
 import os
-
+ 
 from classify_service import classify_img
-from db_recorder import init_db, record_classification
+from db_recorder import init_db, record_classification, fetch_all
 
 app = Flask(__name__)
 
@@ -61,6 +61,11 @@ def predict():
 @app.route("/upload/<filename>")
 def uploaded_file(filename):
     return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
+
+@app.route("/records")
+def records():
+    records = fetch_all()
+    return render_template("records.html", records = records)
 
 if __name__ == "__main__":
     app.run(debug=True)
