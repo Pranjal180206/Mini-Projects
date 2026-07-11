@@ -21,7 +21,7 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 html,body,[class*="css"]{font-family:'Inter',sans-serif!important;}
-.stApp{background:linear-gradient(135deg,#FBEFEF 0%,#FFE2E2 100%);}
+.stApp{background:linear-gradient(135deg,#FDF8F8 0%,#FEF5F5 100%);}
 [data-testid="stSidebar"]{background:#FFFFFF;border-right:1px solid rgba(0,0,0,0.05);}
 [data-testid="stMetric"]{background:#FFFFFF;border:1px solid rgba(0,0,0,0.05);box-shadow:0 4px 6px -1px rgba(0,0,0,0.02);border-radius:12px;padding:16px 20px;}
 [data-testid="stMetricValue"]{color:#C5B3D3!important;font-size:1.8rem!important;font-weight:700!important;}

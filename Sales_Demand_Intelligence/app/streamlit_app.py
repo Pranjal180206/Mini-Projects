@@ -29,7 +29,7 @@ html, body, [class*="css"] {
 
 /* Main background */
 .stApp {
-    background: linear-gradient(135deg, #FBEFEF 0%, #FFE2E2 100%);
+    background: linear-gradient(135deg, #FDF8F8 0%, #FEF5F5 100%);
 }
 
 /* Metric cards */
@@ -81,7 +81,7 @@ html, body, [class*="css"] {
 
 /* Tab styling */
 .stTabs [data-baseweb="tab-list"] {
-    background: #FBEFEF;
+    background: #FDF8F8;
     border-radius: 10px;
     padding: 4px;
 }
