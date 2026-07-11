@@ -1,0 +1,16 @@
+ds,y,Detected By,Likely Cause
+2015-02-22,224.912,Isolation Forest,Post-holiday lull — lowest demand period
+2015-03-01,102.94,Isolation Forest,Unusually low demand — possible supply issue or data gap
+2015-03-22,37703.665,Both,Spring promotion or quarterly corporate purchasing
+2015-07-19,1387.686,Isolation Forest,Summer slowdown — reduced corporate purchasing
+2015-08-09,25207.115,Isolation Forest,Back-to-school demand spike in Office Supplies
+2015-11-22,26793.6235,Isolation Forest,"Holiday/festive season — Black Friday, Christmas promotions"
+2016-01-24,358.522,Isolation Forest,Post-holiday lull — lowest demand period
+2016-02-28,1853.5410000000002,Isolation Forest,Post-holiday lull — lowest demand period
+2016-12-25,22843.047,Z-Score,"Holiday/festive season — Black Friday, Christmas promotions"
+2017-02-12,31342.995,Both,Unusually high demand — possible bulk order or campaign
+2017-04-16,23755.52,Z-Score,Spring promotion or quarterly corporate purchasing
+2017-05-28,23367.662,Z-Score,Unusually high demand — possible bulk order or campaign
+2017-11-26,27367.716,Isolation Forest,"Holiday/festive season — Black Friday, Christmas promotions"
+2018-08-19,22222.554,Z-Score,Back-to-school demand spike in Office Supplies
+2018-11-18,29686.096,Isolation Forest,"Holiday/festive season — Black Friday, Christmas promotions"
