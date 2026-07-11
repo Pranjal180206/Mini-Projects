@@ -38,11 +38,11 @@ Based on our best-performing forecasting model, the next three months are projec
 
 | Month | Forecasted Sales | Confidence Range | Notes |
 |-------|-----------------|-----------------|-------|
-| Month +1 | ~$XX,XXX | ±$X,XXX | End-of-summer transition period |
-| Month +2 | ~$XX,XXX | ±$X,XXX | Back-to-school peak beginning |
-| Month +3 | ~$XX,XXX | ±$X,XXX | Q4 ramp-up, pre-holiday buildup |
+| Month +1 | ~$57,952 | ±$13,847 | End-of-summer transition period |
+| Month +2 | ~$62,067 | ±$13,847 | Back-to-school peak beginning |
+| Month +3 | ~$65,021 | ±$13,847 | Q4 ramp-up, pre-holiday buildup |
 
-> **Plain Language:** We expect sales to remain stable in the first month, then increase meaningfully in Month 2 and Month 3 as we approach the holiday season. The model's average error (MAE) on held-out data was approximately **$X,XXX**, meaning our forecasts should be accurate within that range under normal business conditions.
+> **Plain Language:** We expect sales to remain stable in the first month, then increase meaningfully in Month 2 and Month 3 as we approach the holiday season. The model's average error (MAE) on held-out data was approximately **$13,847**, meaning our forecasts should be accurate within that range under normal business conditions.
 
 *Note: Exact forecast values are populated from the notebook output (outputs/data/model_results.json).*
 
