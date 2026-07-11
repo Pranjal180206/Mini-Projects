@@ -28,6 +28,25 @@ This platform provides actionable business intelligence using advanced time seri
 
 ---
 
+## 🧠 Models Implemented
+
+This project extensively relies on robust Machine Learning and Statistical models to extract insights:
+
+### 1. Forecasting Models
+- **XGBoost (Extreme Gradient Boosting)**: Used as the primary ML model. Extracts temporal features (month, quarter, day of week) to predict non-linear sales patterns. It achieved the best Mean Absolute Error (MAE) and Mean Absolute Percentage Error (MAPE).
+- **Facebook Prophet**: An additive regression model that handles daily/weekly seasonality well and is robust to missing data and shifts in the trend.
+- **SARIMA (Seasonal AutoRegressive Integrated Moving Average)**: A classical statistical model used as a baseline to capture exact seasonal periodicities in the time series.
+
+### 2. Anomaly Detection Models
+- **Isolation Forest**: An unsupervised machine learning algorithm that identifies anomalies by isolating outliers in the feature space (i.e., weeks with exceptionally high or low sales compared to the norm).
+- **Z-Score Method**: A statistical rolling-band approach used as a secondary confirmation to flag data points falling outside 2 standard deviations.
+
+### 3. Segmentation Models
+- **K-Means Clustering**: Unsupervised learning used to group the 17 product sub-categories into 4 actionable business segments based on volume, volatility, and growth.
+- **PCA (Principal Component Analysis)**: Dimensionality reduction technique to visualize the clustering segments in a clear 2D space.
+
+---
+
 ## ⚙️ How It Works
 
 The intelligence pipeline is broken down into two main phases: **Data Processing & Modeling**, and the **Interactive Dashboard**.
