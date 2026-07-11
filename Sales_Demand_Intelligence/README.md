@@ -1,127 +1,111 @@
-# 🛒 End-to-End Sales Forecasting & Demand Intelligence System
-> **Internship Project — Week 3 & Week 4**  
-> Superstore Sales Dataset (Kaggle) + Video Game Sales (Kaggle)
+# 🛒 Sales Demand Intelligence Platform
+
+An end-to-end sales forecasting and demand intelligence system designed to analyze historical retail data, forecast future sales, detect anomalies, and segment products based on demand patterns.
+
+This platform provides actionable business intelligence using advanced time series modeling, machine learning, and interactive data visualization.
+
+---
+
+## 🌟 Key Features
+
+1. **Sales Overview**
+   - Explore 4 years of sales trends across categories, regions, and time periods.
+   - Interactive visualizations for revenue breakdowns and growth analysis.
+
+2. **Forecast Explorer**
+   - **3-Model Comparison**: Evaluates and compares **SARIMA**, **Prophet**, and **XGBoost** models.
+   - Dynamic segment selection (by Category or Region) with customizable forecast horizons.
+   - Includes confidence intervals and error metrics (MAE, RMSE).
+
+3. **Anomaly Detection**
+   - Identifies unusual sales weeks using **Isolation Forest** (machine learning) and **Z-Score** (statistical rolling bands).
+   - Explains likely causes for detected anomalies (e.g., holiday surges, supply chain disruptions).
+
+4. **Product Demand Segmentation**
+   - **K-Means Clustering** categorizes product demand patterns into strategic segments (e.g., "Growing Demand", "High Volatility", "Stable").
+   - **PCA (Principal Component Analysis)** visualization for 2D cluster exploration.
+   - Actionable stocking and inventory strategies for each segment.
+
+---
+
+## ⚙️ How It Works
+
+The intelligence pipeline is broken down into two main phases: **Data Processing & Modeling**, and the **Interactive Dashboard**.
+
+### 1. Data Pipeline & Modeling
+- **Data Preprocessing**: Cleans raw transaction data, aggregates it into daily/weekly/monthly frequencies, and extracts time-based features.
+- **Forecasting**: Fits multiple models to the historical data. Evaluates performance to recommend the best predictions.
+- **Anomaly Detection**: Scans the weekly aggregated data to flag statistical outliers.
+- **Clustering**: Extracts features like Sales Standard Deviation, Average Order Value, and YoY Growth per sub-category, then uses K-Means to identify distinct business strategies.
+- *All models and processed datasets are cached locally for lightning-fast dashboard performance.*
+
+### 2. Interactive Dashboard
+- Built entirely on **Streamlit** with a custom, sleek top-navigation UI.
+- Leverages **Plotly** for highly interactive, responsive charts.
+- Provides immediate business recommendations based on backend ML inferences.
 
 ---
 
 ## 📁 Project Structure
 
-```
-Week 3-4/
+```text
 ├── data/
-│   ├── train.csv              ← Superstore Sales (place here)
-│   └── vgsales.csv            ← Video Game Sales (place here)
+│   ├── train.csv              ← Raw Superstore Sales data
+│   └── vgsales.csv            ← Raw Video Game Sales data
 ├── notebooks/
-│   └── sales_forecasting.ipynb ← Main notebook (Tasks 1–6)
+│   └── sales_forecasting.ipynb ← Data exploration and model training
 ├── app/
-│   ├── streamlit_app.py       ← Dashboard entry point
-│   ├── pages/
-│   │   ├── 1_Sales_Overview.py
-│   │   ├── 2_Forecast_Explorer.py
-│   │   ├── 3_Anomaly_Report.py
-│   │   └── 4_Product_Segments.py
+│   ├── streamlit_app.py       ← Dashboard Main Entry
+│   ├── pages/                 ← Sub-pages (Overview, Forecast, Anomalies, Segments)
 │   └── utils/
-│       ├── data_loader.py
-│       └── model_utils.py
+│       ├── data_loader.py     ← Caching & data processing utilities
+│       ├── model_utils.py     ← ML model inference functions
+│       └── navigation.py      ← Custom UI navigation component
 ├── outputs/
-│   ├── data/                  ← Processed CSVs (auto-generated)
-│   ├── models/                ← Saved model files (auto-generated)
-│   └── plots/                 ← Exported charts (auto-generated)
-├── report/
-│   └── summary.md             ← Executive Business Report
-├── requirements.txt
-└── .streamlit/
-    └── config.toml            ← Dark theme config
+│   ├── data/                  ← Processed datasets
+│   ├── models/                ← Pickled model weights (.pkl)
+│   └── plots/                 ← Exported static charts
+├── .streamlit/
+│   └── config.toml            ← Theme configuration
+└── requirements.txt           ← Project dependencies
 ```
 
 ---
 
 ## 🚀 Quick Start
 
-### Step 1: Place Datasets
-Download from Kaggle and place in the `data/` folder:
-- [Superstore Sales](https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting) → `data/train.csv`
-- [Video Game Sales](https://www.kaggle.com/datasets/gregorut/videogamesales) → `data/vgsales.csv`
-
-### Step 2: Install Dependencies
+### 1. Setup Environment
+Clone the repository and install the dependencies:
 ```bash
+# Create a virtual environment (optional but recommended)
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .\.venv\Scripts\activate
+
+# Install requirements
 pip install -r requirements.txt
 ```
 
-> **Note on Prophet (Windows):** If Prophet install fails, try:
-> ```bash
-> conda install -c conda-forge prophet
-> ```
-> Or install separately: `pip install pystan==2.19.1.1 prophet`
+*(Note for Windows users: If you encounter issues installing `prophet`, try using `conda install -c conda-forge prophet` or install pystan first.)*
 
-### Step 3: Run the Jupyter Notebook (Tasks 1–6)
+### 2. Run the Modeling Pipeline
+Before running the dashboard, generate the required models and processed data:
 ```bash
 cd notebooks
 jupyter notebook sales_forecasting.ipynb
 ```
-Run all cells top-to-bottom. This will:
-- Load and process data
-- Run all 3 forecasting models (SARIMA, Prophet, XGBoost)
-- Detect anomalies
-- Perform clustering
-- Save all model outputs to `outputs/`
+*Run all cells from top to bottom. This process will populate the `outputs/` folder.*
 
-### Step 4: Launch the Streamlit Dashboard (Task 7)
+### 3. Launch the Dashboard
+Start the Streamlit application:
 ```bash
 streamlit run app/streamlit_app.py
 ```
-Open your browser at: **http://localhost:8501**
-
----
-
-## 📋 Task Coverage
-
-| Task | Description | Status |
-|------|-------------|--------|
-| Task 1 | Data Loading, Merging & EDA | ✅ Notebook Section 1 |
-| Task 2 | Time Series Decomposition + ADF | ✅ Notebook Section 2 |
-| Task 3 | SARIMA + Prophet + XGBoost | ✅ Notebook Section 3 |
-| Task 4 | Segment-Level Forecasting | ✅ Notebook Section 4 |
-| Task 5 | Anomaly Detection (IF + Z-Score) | ✅ Notebook Section 5 |
-| Task 6 | K-Means Demand Clustering | ✅ Notebook Section 6 |
-| Task 7 | Streamlit Dashboard (4 pages) | ✅ app/ |
-| Task 8 | Executive Business Report | ✅ report/summary.md |
-
----
-
-## ☁️ Deployment (Streamlit Community Cloud)
-
-1. Push this entire project to a GitHub repository
-2. Go to [share.streamlit.io](https://share.streamlit.io)
-3. Connect your GitHub account
-4. Select repo → Set Main file: `app/streamlit_app.py`
-5. Add your datasets as GitHub files OR use Streamlit Secrets for Kaggle API credentials
-6. Click **Deploy** → Share your live link!
-
-> **Important:** Kaggle datasets may need to be included in the repo (they are small enough). Alternatively, use `kaggle` Python package to download them on startup via `requirements.txt`.
+Open your browser at **http://localhost:8501** to view the platform.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Tool | Purpose |
-|------|---------|
-| `pandas` | Data loading, manipulation |
-| `statsmodels` | SARIMA, decomposition, ADF test |
-| `prophet` | Facebook Prophet forecasting |
-| `xgboost` | ML-based time series forecasting |
-| `scikit-learn` | Isolation Forest, K-Means, PCA |
-| `plotly` | Interactive charts |
-| `streamlit` | Dashboard framework |
-| `matplotlib/seaborn` | Notebook visualizations |
-
----
-
-## 📧 Submission Checklist
-
-- [ ] Notebook runs end-to-end without errors
-- [ ] Model comparison table shows MAE, RMSE, MAPE for all 3 models
-- [ ] Streamlit app runs locally on `localhost:8501`
-- [ ] Streamlit app deployed and live link submitted
-- [ ] `report/summary.md` converted to PDF/Word for submission
-- [ ] All 4 Streamlit pages load and display charts correctly
+- **Data Processing**: `pandas`, `numpy`
+- **Machine Learning & Time Series**: `scikit-learn` (Isolation Forest, K-Means, PCA), `xgboost`, `prophet`, `statsmodels` (SARIMA)
+- **Frontend & Visualization**: `streamlit`, `plotly`
